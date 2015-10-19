@@ -282,6 +282,7 @@ void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale = 0.2
     line(img, p, q, colour, 1, CV_AA);
 }
 
+//v = vmax * e^(-k*abs(theta - 90))
 double linearVelocity(double theta){
     const double vMax = 0.85; //0.85
     const double k1 = 1.0 / 40; // 1/40
@@ -289,11 +290,13 @@ double linearVelocity(double theta){
     return vMax * exp(-(theta > 90 ? k2 : k1) * abs(theta - 90));
     //return vMax * (1 - (abs(theta - 90) / 90));
 }
-
+//w = wmax * ( 1 - e^(-k*abs(theta - 90)))*N if (theta > 90) (N = -1) else (N = 1)
 double angularVelocity(double theta){
     const double wMax = 0.25;
-    const double k1 = 1.0 / 50; // 1 / 100
-    const double k2 = 1.0 / 2;
+     //K1 right to left correction
+    const double k1 = 1.0 / 50; // 1 / 50
+     //K2 left to right correction
+    const double k2 = 1.0 / 20;
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
     //return wMax * -((theta - 90) / 90);
 }
