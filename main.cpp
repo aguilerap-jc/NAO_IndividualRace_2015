@@ -3,6 +3,29 @@
  * Use of this source code is governed by a BSD-style license that can be
  * found in the COPYING file.
  */
+/* Coautores
+   Marco Ramirez
+   Juan Carlos Aguilera Perez
+   Aurelio Puebla
+   Fernando Lopez
+
+
+*/
+/* Aspectos de revision
+ * Confirmar se mantega dentro del carril
+ * Revisar Caidas
+ * Agregar que se detenga a los 3 mins
+ * Crear rutina de apagado y encendido
+*/
+/* Reglas
+ * Distancia total 5m
+ * Franja inicio 18 cm
+ * Franja final 30 cm y de color rojo
+ * Max tiempo fuera de carril = 3 segs
+ * Se considera fuera de carril con 1 pie fuera de la linea
+ * Si algo sucede el robot tiene que poder responder autonomamente(levantar)
+*/
+
 #include <iostream>
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
