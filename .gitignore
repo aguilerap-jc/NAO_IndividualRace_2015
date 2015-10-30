@@ -1,0 +1,7 @@
+*.xml
+build-naoqi64*/
+build-sys-linux-x86_64*/
+CMakeLists.txt.user
+*.json
+.excludes
+qiproject.xml
