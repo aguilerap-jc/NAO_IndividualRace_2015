@@ -1,29 +1,30 @@
-/*
+/* Copyright
  * Copyright (c) 2012-2014 Aldebaran Robotics. All rights reserved.
  * Use of this source code is governed by a BSD-style license that can be
  * found in the COPYING file.
  */
+
 /* Coautores
    Marco Ramirez
    Juan Carlos Aguilera Perez
    Aurelio Puebla
    Fernando Lopez
-
-
 */
+
 /* Aspectos de revision
  * Confirmar se mantega dentro del carril
  * Revisar Caidas
  * Agregar que se detenga a los 3 mins
  * Crear rutina de apagado y encendido
 */
+
 /* Reglas
  * Distancia total 5m
  * Franja inicio 18 cm
  * Franja final 30 cm y de color rojo
  * Max tiempo fuera de carril = 3 segs
  * Se considera fuera de carril con 1 pie fuera de la linea
- * Si algo sucede el robot tiene que poder responder autonomamente(levantar)
+ * Si algo sucede el robot tiene que poder responder autonomamente (levantar)
 */
 
 #include <iostream>
@@ -34,6 +35,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+
 #include <alproxies/alvideodeviceproxy.h>
 #include <alvision/alimage.h>
 #include <alvision/alvisiondefinitions.h>
@@ -41,11 +43,12 @@
 using namespace std;
 using namespace AL;
 using namespace cv;
+
 AL::ALValue walk();
 double getOrientation(const vector<Point> &pts, Mat &img);
-void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale);
 double linearVelocity(double theta);
 double angularVelocity(double theta);
+void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale);
 
 int main(int argc, char *argv[]) {
     string ip;
@@ -325,11 +328,10 @@ double angularVelocity(double theta){
 }
 
 AL::ALValue walk(){
-   return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14)
-                             ,AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.5) //Frec 0.5
-                             ,AL::ALValue::array("StepHeight",0.04),AL::ALValue::array("TorsoWx",0.0)
-                             ,AL::ALValue::array("TorsoWy",0));
-
+   return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14),
+                             AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.5), //Frec 0.5
+                             AL::ALValue::array("StepHeight",0.04),AL::ALValue::array("TorsoWx",0.0),
+                             AL::ALValue::array("TorsoWy",0));
 }
 
 
