@@ -291,3 +291,213 @@ Linking C executable cmTryCompileExec2040084098
 make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
 
 
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec959171208/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec959171208.dir/build.make CMakeFiles/cmTryCompileExec959171208.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec959171208.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec959171208.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec959171208
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec959171208.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec959171208.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec959171208 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2053898309/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2053898309.dir/build.make CMakeFiles/cmTryCompileExec2053898309.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2053898309.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2053898309.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2053898309
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2053898309.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2053898309.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2053898309 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec286650550/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec286650550.dir/build.make CMakeFiles/cmTryCompileExec286650550.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec286650550.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec286650550.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec286650550
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec286650550.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec286650550.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec286650550 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec249111744/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec249111744.dir/build.make CMakeFiles/cmTryCompileExec249111744.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec249111744.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec249111744.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec249111744
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec249111744.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec249111744.dir/CheckFunctionExists.c.o  -o cmTryCompileExec249111744 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1550105057/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1550105057.dir/build.make CMakeFiles/cmTryCompileExec1550105057.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1550105057.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1550105057.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1550105057
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1550105057.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1550105057.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1550105057 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec595634953/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec595634953.dir/build.make CMakeFiles/cmTryCompileExec595634953.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec595634953.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec595634953.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec595634953
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec595634953.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec595634953.dir/CheckFunctionExists.c.o  -o cmTryCompileExec595634953 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1088646675/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1088646675.dir/build.make CMakeFiles/cmTryCompileExec1088646675.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1088646675.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1088646675.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1088646675
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1088646675.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1088646675.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1088646675 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec528101859/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec528101859.dir/build.make CMakeFiles/cmTryCompileExec528101859.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec528101859.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec528101859.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec528101859
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec528101859.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec528101859.dir/CheckFunctionExists.c.o  -o cmTryCompileExec528101859 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2224484824/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2224484824.dir/build.make CMakeFiles/cmTryCompileExec2224484824.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2224484824.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2224484824.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2224484824
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2224484824.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2224484824.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2224484824 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1878437102/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1878437102.dir/build.make CMakeFiles/cmTryCompileExec1878437102.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1878437102.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1878437102.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1878437102
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1878437102.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1878437102.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1878437102 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec622620683/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec622620683.dir/build.make CMakeFiles/cmTryCompileExec622620683.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec622620683.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec622620683.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec622620683
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec622620683.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec622620683.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec622620683 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2560319287/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2560319287.dir/build.make CMakeFiles/cmTryCompileExec2560319287.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2560319287.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2560319287.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2560319287
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2560319287.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2560319287.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2560319287 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1355809044/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1355809044.dir/build.make CMakeFiles/cmTryCompileExec1355809044.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1355809044.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1355809044.dir/CheckIncludeFiles.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1355809044
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1355809044.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1355809044.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1355809044 -rdynamic 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec305547198/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec305547198.dir/build.make CMakeFiles/cmTryCompileExec305547198.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec305547198.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec305547198.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec305547198
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec305547198.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec305547198.dir/CheckFunctionExists.c.o  -o cmTryCompileExec305547198 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+
+

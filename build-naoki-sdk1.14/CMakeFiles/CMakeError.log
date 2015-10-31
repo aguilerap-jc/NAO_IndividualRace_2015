@@ -51,3 +51,374 @@ make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualra
 make: *** [cmTryCompileExec1588975719/fast] Error 2
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1336034993/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1336034993.dir/build.make CMakeFiles/cmTryCompileExec1336034993.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1336034993.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1336034993.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1336034993
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1336034993.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1336034993.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1336034993 -rdynamic 
+CMakeFiles/cmTryCompileExec1336034993.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1336034993] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1336034993/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2185803101/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2185803101.dir/build.make CMakeFiles/cmTryCompileExec2185803101.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2185803101.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2185803101.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2185803101
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2185803101.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2185803101.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2185803101 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec2185803101] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2185803101/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1487799845/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1487799845.dir/build.make CMakeFiles/cmTryCompileExec1487799845.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1487799845.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1487799845.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1487799845
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1487799845.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1487799845.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1487799845 -rdynamic 
+CMakeFiles/cmTryCompileExec1487799845.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1487799845] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1487799845/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2314696314/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2314696314.dir/build.make CMakeFiles/cmTryCompileExec2314696314.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2314696314.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2314696314.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2314696314
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2314696314.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2314696314.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2314696314 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec2314696314] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2314696314/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3263060470/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3263060470.dir/build.make CMakeFiles/cmTryCompileExec3263060470.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3263060470.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3263060470.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3263060470
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3263060470.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3263060470.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3263060470 -rdynamic 
+CMakeFiles/cmTryCompileExec3263060470.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3263060470] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3263060470/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2669152186/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2669152186.dir/build.make CMakeFiles/cmTryCompileExec2669152186.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2669152186.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2669152186.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2669152186
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2669152186.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2669152186.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2669152186 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec2669152186] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2669152186/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3150965370/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3150965370.dir/build.make CMakeFiles/cmTryCompileExec3150965370.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3150965370.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3150965370.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3150965370
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3150965370.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3150965370.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3150965370 -rdynamic 
+CMakeFiles/cmTryCompileExec3150965370.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3150965370] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3150965370/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3113465880/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3113465880.dir/build.make CMakeFiles/cmTryCompileExec3113465880.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3113465880.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3113465880.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3113465880
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3113465880.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3113465880.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3113465880 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3113465880] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3113465880/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2308827043/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2308827043.dir/build.make CMakeFiles/cmTryCompileExec2308827043.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2308827043.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2308827043.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2308827043
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2308827043.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2308827043.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2308827043 -rdynamic 
+CMakeFiles/cmTryCompileExec2308827043.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2308827043] Error 1
+make: *** [cmTryCompileExec2308827043/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1847703726/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1847703726.dir/build.make CMakeFiles/cmTryCompileExec1847703726.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1847703726.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1847703726.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1847703726
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1847703726.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1847703726.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1847703726 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1847703726] Error 1
+make: *** [cmTryCompileExec1847703726/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3174621298/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3174621298.dir/build.make CMakeFiles/cmTryCompileExec3174621298.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3174621298.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3174621298.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3174621298
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3174621298.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3174621298.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3174621298 -rdynamic 
+CMakeFiles/cmTryCompileExec3174621298.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3174621298] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3174621298/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1135157793/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1135157793.dir/build.make CMakeFiles/cmTryCompileExec1135157793.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1135157793.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1135157793.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1135157793
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1135157793.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1135157793.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1135157793 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1135157793] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1135157793/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec100447660/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec100447660.dir/build.make CMakeFiles/cmTryCompileExec100447660.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec100447660.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec100447660.dir/CheckSymbolExists.c.o   -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec100447660
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec100447660.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec100447660.dir/CheckSymbolExists.c.o  -o cmTryCompileExec100447660 -rdynamic 
+CMakeFiles/cmTryCompileExec100447660.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec100447660] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec100447660/fast] Error 2
+
+File /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3295101523/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3295101523.dir/build.make CMakeFiles/cmTryCompileExec3295101523.dir/build
+make[1]: Entering directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3295101523.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3295101523.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3295101523
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3295101523.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3295101523.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3295101523 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3295101523] Error 1
+make[1]: Leaving directory `/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3295101523/fast] Error 2
+
+

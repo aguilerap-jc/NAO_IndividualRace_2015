@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.cpp" "/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/individualrace.dir/NaoVision.cpp.o"
   "/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/main.cpp" "/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles/individualrace.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

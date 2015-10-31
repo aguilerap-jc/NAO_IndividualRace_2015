@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-
 CMakeFiles/individualrace.dir/all:
 	$(MAKE) -f CMakeFiles/individualrace.dir/build.make CMakeFiles/individualrace.dir/depend
 	$(MAKE) -f CMakeFiles/individualrace.dir/build.make CMakeFiles/individualrace.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles  1 2
 	@echo "Built target individualrace"
 .PHONY : CMakeFiles/individualrace.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/individualrace.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/individualrace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/individualrace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles 0
 .PHONY : CMakeFiles/individualrace.dir/rule
@@ -77,6 +77,15 @@ CMakeFiles/individualrace.dir/rule: cmake_check_build_system
 # Convenience name for target.
 individualrace: CMakeFiles/individualrace.dir/rule
 .PHONY : individualrace
+
+# Pre-install relink rule for target.
+CMakeFiles/individualrace.dir/preinstall:
+	$(MAKE) -f CMakeFiles/individualrace.dir/build.make CMakeFiles/individualrace.dir/preinstall
+.PHONY : CMakeFiles/individualrace.dir/preinstall
+
+# Prepare target for install.
+preinstall: CMakeFiles/individualrace.dir/preinstall
+.PHONY : preinstall
 
 # clean rule for target.
 CMakeFiles/individualrace.dir/clean:

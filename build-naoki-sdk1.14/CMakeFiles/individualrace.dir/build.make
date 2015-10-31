@@ -72,14 +72,39 @@ CMakeFiles/individualrace.dir/main.cpp.o.provides: CMakeFiles/individualrace.dir
 
 CMakeFiles/individualrace.dir/main.cpp.o.provides.build: CMakeFiles/individualrace.dir/main.cpp.o
 
+CMakeFiles/individualrace.dir/NaoVision.cpp.o: CMakeFiles/individualrace.dir/flags.make
+CMakeFiles/individualrace.dir/NaoVision.cpp.o: ../NaoVision.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/individualrace.dir/NaoVision.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/individualrace.dir/NaoVision.cpp.o -c /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.cpp
+
+CMakeFiles/individualrace.dir/NaoVision.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/individualrace.dir/NaoVision.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.cpp > CMakeFiles/individualrace.dir/NaoVision.cpp.i
+
+CMakeFiles/individualrace.dir/NaoVision.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/individualrace.dir/NaoVision.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.cpp -o CMakeFiles/individualrace.dir/NaoVision.cpp.s
+
+CMakeFiles/individualrace.dir/NaoVision.cpp.o.requires:
+.PHONY : CMakeFiles/individualrace.dir/NaoVision.cpp.o.requires
+
+CMakeFiles/individualrace.dir/NaoVision.cpp.o.provides: CMakeFiles/individualrace.dir/NaoVision.cpp.o.requires
+	$(MAKE) -f CMakeFiles/individualrace.dir/build.make CMakeFiles/individualrace.dir/NaoVision.cpp.o.provides.build
+.PHONY : CMakeFiles/individualrace.dir/NaoVision.cpp.o.provides
+
+CMakeFiles/individualrace.dir/NaoVision.cpp.o.provides.build: CMakeFiles/individualrace.dir/NaoVision.cpp.o
+
 # Object files for target individualrace
 individualrace_OBJECTS = \
-"CMakeFiles/individualrace.dir/main.cpp.o"
+"CMakeFiles/individualrace.dir/main.cpp.o" \
+"CMakeFiles/individualrace.dir/NaoVision.cpp.o"
 
 # External object files for target individualrace
 individualrace_EXTERNAL_OBJECTS =
 
 sdk/bin/individualrace: CMakeFiles/individualrace.dir/main.cpp.o
+sdk/bin/individualrace: CMakeFiles/individualrace.dir/NaoVision.cpp.o
 sdk/bin/individualrace: CMakeFiles/individualrace.dir/build.make
 sdk/bin/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalproxies.so
 sdk/bin/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalproxies.so
@@ -111,7 +136,49 @@ sdk/bin/individualrace: CMakeFiles/individualrace.dir/link.txt
 CMakeFiles/individualrace.dir/build: sdk/bin/individualrace
 .PHONY : CMakeFiles/individualrace.dir/build
 
+# Object files for target individualrace
+individualrace_OBJECTS = \
+"CMakeFiles/individualrace.dir/main.cpp.o" \
+"CMakeFiles/individualrace.dir/NaoVision.cpp.o"
+
+# External object files for target individualrace
+individualrace_EXTERNAL_OBJECTS =
+
+CMakeFiles/CMakeRelink.dir/individualrace: CMakeFiles/individualrace.dir/main.cpp.o
+CMakeFiles/CMakeRelink.dir/individualrace: CMakeFiles/individualrace.dir/NaoVision.cpp.o
+CMakeFiles/CMakeRelink.dir/individualrace: CMakeFiles/individualrace.dir/build.make
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalproxies.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalproxies.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalcommon.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalsoap.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/librttools.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalthread.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libboost_signals-mt.a
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libboost_program_options-mt.a
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalvalue.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libtinyxml.so
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/lib/x86_64-linux-gnu/librt.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libqi.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libboost_filesystem-mt.a
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libboost_thread-mt.a
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/lib/x86_64-linux-gnu/libpthread.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libboost_system-mt.a
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/lib/x86_64-linux-gnu/libdl.so
+CMakeFiles/CMakeRelink.dir/individualrace: /home/ubuntu/Documents/NAO/devtools/naoqi-sdk-1.14.5-linux64/lib/libalerror.so
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/local/lib/libopencv_highgui.so
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/local/lib/libopencv_imgproc.so
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/local/lib/libopencv_core.so
+CMakeFiles/CMakeRelink.dir/individualrace: /usr/local/lib/libopencv_video.so
+CMakeFiles/CMakeRelink.dir/individualrace: CMakeFiles/individualrace.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CMakeFiles/CMakeRelink.dir/individualrace"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/individualrace.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+CMakeFiles/individualrace.dir/preinstall: CMakeFiles/CMakeRelink.dir/individualrace
+.PHONY : CMakeFiles/individualrace.dir/preinstall
+
 CMakeFiles/individualrace.dir/requires: CMakeFiles/individualrace.dir/main.cpp.o.requires
+CMakeFiles/individualrace.dir/requires: CMakeFiles/individualrace.dir/NaoVision.cpp.o.requires
 .PHONY : CMakeFiles/individualrace.dir/requires
 
 CMakeFiles/individualrace.dir/clean:

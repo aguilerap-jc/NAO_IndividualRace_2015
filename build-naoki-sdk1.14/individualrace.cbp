@@ -73,16 +73,6 @@
             <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
-      <Target title="install/strip">
-         <Option working_dir="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/Makefile&quot;  VERBOSE=1 install/strip" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
       <Target title="list_install_components">
          <Option working_dir="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/build-naoki-sdk1.14" />
          <Option type="4" />
@@ -104,7 +94,11 @@
          </MakeCommands>
       </Target>
       </Build>
+      <Unit filename="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.cpp">
+      </Unit>
       <Unit filename="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/main.cpp">
+      </Unit>
+      <Unit filename="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.h">
       </Unit>
       <Unit filename="/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />

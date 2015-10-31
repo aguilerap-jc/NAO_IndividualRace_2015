@@ -2362,13 +2362,7 @@ vector
 qi/config.hpp
 -
 
-/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/main.cpp
-iostream
--
-alproxies/almotionproxy.h
--
-alproxies/alrobotpostureproxy.h
--
+/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -2377,10 +2371,20 @@ opencv2/highgui/highgui.hpp
 -
 opencv2/imgproc/imgproc.hpp
 -
-alproxies/alvideodeviceproxy.h
--
 alvision/alimage.h
+-
+alproxies/almotionproxy.h
+-
+alproxies/alrobotpostureproxy.h
+-
+alproxies/alvideodeviceproxy.h
 -
 alvision/alvisiondefinitions.h
 -
+
+/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/main.cpp
+iostream
+-
+NaoVision.h
+/home/ubuntu/Documents/NAO/naoWorkspace/individualrace/NaoVision.h
 
