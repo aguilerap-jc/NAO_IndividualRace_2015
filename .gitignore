@@ -1,5 +1,5 @@
 qiproject.xml
-*.txt
+ignorar.txt
 *.xml
 build-naoki-sdk1.14/**/*
 build-sys-linux-x86_64/**/*
