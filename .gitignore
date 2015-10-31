@@ -1,7 +1,4 @@
-prueba.txt
-CMakeLists.txt
+*.txt
 *.xml
-build-naoqi64*/
-build-sys-linux-x86_64*/
-*.json
-.excludes
+build-naoki-sdk1.14/**/*
+build-sys-linux-x86_64/**/*
