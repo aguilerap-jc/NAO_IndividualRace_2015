@@ -29,6 +29,7 @@
 
 #include <iostream>
 #include "NaoVision.h"
+#include "NaoMovement.h"
 
 using namespace std;
 using namespace AL;
@@ -41,8 +42,8 @@ int main(int argc, char *argv[]) {
     string ip = argv[1];        // NAO ip
     cout << "IP: " << ip << endl;
 
-    AL::ALRobotPostureProxy posture(ip, port);  // Posture Proxy
-    AL::ALMotionProxy motion(ip, port);         // Motion Proxy
+    //AL::ALRobotPostureProxy posture(ip, port);  // Posture Proxy
+    //AL::ALMotionProxy motion(ip, port);         // Motion Proxy
     Mat src;
 
     bool DEBUG = true;          // Bandera para mostrar mensajes
@@ -51,15 +52,13 @@ int main(int argc, char *argv[]) {
     char key = 'x';
     double angleToALine;         // Angulo de la línea detectada
 
-    posture.goToPosture("Crouch", 0.5);
-    posture.goToPosture("StandInit", 0.5);
-    cout << "Stand" << endl;
-
     NaoVision naoVision(ip, port, LOCAL);
-
+    NaoMovement naoMovement(ip, port, LOCAL);
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.
 
-    while(key != 27) {
+    naoMovement.initialPosition();
+
+    while (key != 27) {
         if (NAO) {
             naoVision.getImage();
             src = naoVision.getSourceMat();
@@ -70,7 +69,7 @@ int main(int argc, char *argv[]) {
 
         angleToALine = naoVision.calculateAngleToALine();
 
-        if(DEBUG){
+        if (DEBUG){
             //cout << "VelLin: " << linearVelocity(orientation) << endl;
             //cout << "VelAng: " << angularVelocity(orientation) << endl;
             cout << "Theta: " << angleToALine << endl;
@@ -80,14 +79,11 @@ int main(int argc, char *argv[]) {
         key = waitKey(10);
 
         //motion.move(linearVelocity(orientation), 0, angularVelocity(orientation),walk());
-        for(int i = 0; i < 250000; i++);
+        for (int i = 0; i < 250000; i++);
     }
 
     naoVision.unsubscribe();
-    motion.stopMove();
-    cout << "Stop" << endl;
-    posture.goToPosture("Crouch", 0.5);
-    motion.setStiffnesses("Body", 0);
+    naoMovement.stop();
 
     return 0;
 }
