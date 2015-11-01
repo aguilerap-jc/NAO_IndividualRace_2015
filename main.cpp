@@ -50,13 +50,12 @@ int main(int argc, char *argv[]) {
     bool NAO = true;
     char key = 'x';
     double angleToALine;         // Angulo de la línea detectada
-    string clientName = "test";
 
     posture.goToPosture("Crouch", 0.5);
     posture.goToPosture("StandInit", 0.5);
     cout << "Stand" << endl;
 
-    NaoVision naoVision(ip, port, clientName, LOCAL);
+    NaoVision naoVision(ip, port, LOCAL);
 
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.
 
