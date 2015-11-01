@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     bool LOCAL = false;         // Bandera para el tipo de ejecucion (local o remota)
     bool NAO = true;
     char key = 'x';
-    double orientation;         // Angulo de la línea detectada
+    double angleToALine;         // Angulo de la línea detectada
     string clientName = "test";
 
     posture.goToPosture("Crouch", 0.5);
@@ -69,12 +69,12 @@ int main(int argc, char *argv[]) {
             cap >> src;
         }
 
-        orientation = naoVision.calculateAngleToALine();
+        angleToALine = naoVision.calculateAngleToALine();
 
         if(DEBUG){
             //cout << "VelLin: " << linearVelocity(orientation) << endl;
             //cout << "VelAng: " << angularVelocity(orientation) << endl;
-            cout << "Theta: " << orientation << endl;
+            cout << "Theta: " << angleToALine << endl;
             cout << "--------------------------------" << endl;
         }
 

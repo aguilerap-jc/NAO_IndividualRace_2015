@@ -23,10 +23,8 @@ public:
     void setSourceMat(Mat source);
     Mat getSourceMat();
 
-    double getOrientation(const vector<Point> &pts, Mat &img);
     double linearVelocity(double theta);
     double angularVelocity(double theta);
-    void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale);
 
 private:
     RNG rng;
@@ -43,8 +41,11 @@ private:
     int length;
     int thresh;
     int umbral;             // Part of the frame that will not be taken into account.
-    double orientation;     // Detected angle line.
+    double angleToALine;    // Detected angle line.
     string ip;
     string clientName;
     string parameterClientName;
+
+    double getAngleDegrees(const vector<Point> &pts, Mat &img);
+    void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale);
 };

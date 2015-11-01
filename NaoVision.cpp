@@ -35,7 +35,7 @@ void NaoVision::getImage() {
     src = imgHeader.clone();
 }
 
-// Process an image
+// Process an image containing a line and retur the angle with respect to NAO.
 double NaoVision::calculateAngleToALine() {
     // Convert image to gray and blur it.
     cvtColor(src, src_gray, CV_BGR2GRAY);
@@ -117,7 +117,7 @@ double NaoVision::calculateAngleToALine() {
         circle( drawing, mcClean[indMax], 4, color, 5, 8, 0 );
 
         // Calculate the angle of the line.
-        orientation = getOrientation(contoursClean[indMax], drawing);
+        angleToALine = getAngleDegrees(contoursClean[indMax], drawing);
 
         // Show in a window.
         if(!local) {
@@ -139,22 +139,22 @@ double NaoVision::calculateAngleToALine() {
             }
         }
         else { // Go straight.
-            orientation = 90.0;
+            angleToALine = 90.0;
         }
     }
     else { // Go straight.
-        orientation = 90.0;
+        angleToALine = 90.0;
     }
 
-    return orientation;
+    return angleToALine;
 }
 
 void NaoVision::unsubscribe() {
    cameraProxy.unsubscribe(clientName);
 }
 
-// Calculations
-double NaoVision::getOrientation(const vector<Point> &pts, Mat &img){
+// Calculate the angle in degrees of a certain line.
+double NaoVision::getAngleDegrees(const vector<Point> &pts, Mat &img){
     //Construct a buffer used by the pca analysis
     int sz = static_cast<int>(pts.size());
     Mat data_pts = Mat(sz, 2, CV_64FC1);
@@ -185,7 +185,6 @@ double NaoVision::getOrientation(const vector<Point> &pts, Mat &img){
     double degrees = angle * 180 / CV_PI; // convert radians to degrees (0-180 range)
     degrees = degrees < 0 ? degrees + 180 : degrees;
     return degrees;
-
 }
 
 void NaoVision::drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale = 0.2){
