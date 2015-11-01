@@ -15,7 +15,7 @@ using namespace cv;
 
 class NaoVision {
 public:
-    NaoVision(const string ip, const int port, const string clientName, bool local);
+    NaoVision(const string ip, const int port, bool local);
     void getImage();
     double calculateAngleToALine();
     void unsubscribe();
