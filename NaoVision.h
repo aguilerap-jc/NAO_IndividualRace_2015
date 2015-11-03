@@ -23,9 +23,6 @@ public:
     void setSourceMat(Mat source);
     Mat getSourceMat();
 
-    double linearVelocity(double theta);
-    double angularVelocity(double theta);
-
 private:
     RNG rng;
     Mat src;

@@ -216,26 +216,6 @@ void NaoVision::drawAxis(Mat& img, Point p, Point q, Scalar colour, const float 
     line(img, p, q, colour, 1, CV_AA);
 }
 
-// v = vmax * e^(-k*abs(theta - 90))
-double NaoVision::linearVelocity(double theta){
-    const double vMax = 0.85; //0.85
-    const double k1 = 1.0 / 40; // 1/40
-    const double k2 = 1.0 / 15; // 1/ 15
-    return vMax * exp(-(theta > 90 ? k2 : k1) * abs(theta - 90));
-    //return vMax * (1 - (abs(theta - 90) / 90));
-}
-
-// w = wmax * ( 1 - e^(-k*abs(theta - 90)))*N if (theta > 90) (N = -1) else (N = 1)
-double NaoVision::angularVelocity(double theta){
-    const double wMax = 0.25;
-     //K1 right to left correction
-    const double k1 = 1.0 / 50; // 1 / 50
-     //K2 left to right correction
-    const double k2 = 1.0 / 20;
-    return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
-    //return wMax * -((theta - 90) / 90);
-}
-
 // Getters and setters
 void NaoVision::setSourceMat(Mat source) {
     src = source;

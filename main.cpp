@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     bool LOCAL = false;         // Bandera para el tipo de ejecucion (local o remota)
     bool NAO = true;
     char key = 'x';
-    double angleToALine;         // Angulo de la línea detectada
+    double angleToBlackLine;         // Angulo de la línea detectada
 
     NaoVision naoVision(ip, port, LOCAL);
     NaoMovement naoMovement(ip, port, LOCAL);
@@ -67,18 +67,11 @@ int main(int argc, char *argv[]) {
             naoVision.setSourceMat(src);
         }
 
-        angleToALine = naoVision.calculateAngleToBlackLine();
-
-        if (DEBUG){
-            //cout << "VelLin: " << linearVelocity(orientation) << endl;
-            //cout << "VelAng: " << angularVelocity(orientation) << endl;
-            cout << "Theta: " << angleToALine << endl;
-            cout << "--------------------------------" << endl;
-        }
-
+        angleToBlackLine = naoVision.calculateAngleToBlackLine();
         key = waitKey(10);
 
-        //motion.move(linearVelocity(orientation), 0, angularVelocity(orientation),walk());
+        naoMovement.moveInIndividualRace(angleToBlackLine);
+
         for (int i = 0; i < 250000; i++);
     }
 
@@ -86,11 +79,4 @@ int main(int argc, char *argv[]) {
     naoMovement.stop();
 
     return 0;
-}
-
-AL::ALValue walk() {
-   return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14),
-                              AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.5), //Frec 0.5
-                              AL::ALValue::array("StepHeight",0.04),AL::ALValue::array("TorsoWx",0.0),
-                              AL::ALValue::array("TorsoWy",0));
 }
