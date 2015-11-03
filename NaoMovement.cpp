@@ -19,7 +19,7 @@ void NaoMovement::initialPosition() {
 
 // Given an angle in degrees, move the NAO in straight mode.
 void NaoMovement::moveInIndividualRace(double angleInDegrees) {
-    //motion.move(linearVelocity(orientation), 0, angularVelocity(orientation),walkParameters());
+    motion.move(linearVelocity(angleInDegrees), 0, angularVelocity(angleInDegrees),walkParameters());
 
     if (!local){
         cout << "VelLin: " << linearVelocity(angleInDegrees) << endl;
@@ -52,7 +52,7 @@ double NaoMovement::linearVelocity(double theta){
 // w = wmax * ( 1 - e^(-k*abs(theta - 90)))*N if (theta > 90) (N = -1) else (N = 1)
 double NaoMovement::angularVelocity(double theta){
     const double wMax = 0.25;
-    const double k1 = 1.0 / 20;     // k1 right to left correction  // 1/50
+    const double k1 = 1.0 / 20;     // k1 right to left correction
     const double k2 = 1.0 / 20;     // k2 left to right correction
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
 }

@@ -61,18 +61,16 @@ int main(int argc, char *argv[]) {
     while (key != 27) {
         if (NAO) {
             src = naoVision.getImage();
-        }
-        else {
+        } else {
             cap >> src;
             naoVision.setSourceMat(src);
         }
 
         angleToBlackLine = naoVision.calculateAngleToBlackLine();
+        naoMovement.moveInIndividualRace(angleToBlackLine);
         key = waitKey(10);
 
-        naoMovement.moveInIndividualRace(angleToBlackLine);
-
-        for (int i = 0; i < 250000; i++);
+        for (int i = 0; i < 250000; i++);   // Delay.
     }
 
     naoVision.unsubscribe();
