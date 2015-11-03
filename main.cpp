@@ -60,14 +60,14 @@ int main(int argc, char *argv[]) {
 
     while (key != 27) {
         if (NAO) {
-            naoVision.getImage();
-            src = naoVision.getSourceMat();
+            src = naoVision.getImage();
         }
         else {
             cap >> src;
+            naoVision.setSourceMat(src);
         }
 
-        angleToALine = naoVision.calculateAngleToALine();
+        angleToALine = naoVision.calculateAngleToBlackLine();
 
         if (DEBUG){
             //cout << "VelLin: " << linearVelocity(orientation) << endl;

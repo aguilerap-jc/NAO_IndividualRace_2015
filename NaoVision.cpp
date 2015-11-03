@@ -11,7 +11,7 @@ NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraPro
 }
 
 // Get image from NAO.
-void NaoVision::getImage() {
+Mat NaoVision::getImage() {
     // Connect to bottom camera.
     cameraProxy.setActiveCamera(AL::kBottomCamera);
 
@@ -33,10 +33,12 @@ void NaoVision::getImage() {
 
     // Display the iplImage on screen.
     src = imgHeader.clone();
+
+    return src;
 }
 
 // Process an image containing a line and return the angle with respect to NAO.
-double NaoVision::calculateAngleToALine() {
+double NaoVision::calculateAngleToBlackLine() {
     // Convert image to gray and blur it.
     cvtColor(src, src_gray, CV_BGR2GRAY);
     blur(src_gray, src_gray, Size(3,3));
@@ -235,6 +237,10 @@ double NaoVision::angularVelocity(double theta){
 }
 
 // Getters and setters
+void NaoVision::setSourceMat(Mat source) {
+    src = source;
+}
+
 Mat NaoVision::getSourceMat() {
     return src;
 }
