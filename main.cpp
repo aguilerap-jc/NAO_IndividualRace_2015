@@ -35,8 +35,6 @@ using namespace std;
 using namespace AL;
 using namespace cv;
 
-AL::ALValue walk();
-
 int main(int argc, char *argv[]) {
     const int port = 9559;
     string ip = argv[1];        // NAO ip
