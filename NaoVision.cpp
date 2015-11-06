@@ -1,6 +1,7 @@
 #include "NaoVision.h"
 
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
+    lineFlag = 0;
     thresh = 110;
     umbral = 60;
     this->ip = ip;
@@ -121,6 +122,15 @@ double NaoVision::calculateAngleToBlackLine() {
         // Calculate the angle of the line.
         angleToALine = getAngleDegrees(contoursClean[indMax], drawing);
 
+        if(angleToALine >= 80 && angleToALine <= 100 && lineFlag == 1)
+            angleToALine = 180;  // Nao is on the left black line, so we have to go to the right.
+        else if (angleToALine >= 80 && angleToALine <= 100 && lineFlag == 2)
+            angleToALine = 0;    // Nao is on the right black line, so we have to go to the left.
+        else if (angleToALine < 90)
+            lineFlag = 2;
+        else if (angleToALine > 90)
+            lineFlag = 1;
+
         // Show in a window.
         if(!local) {
             namedWindow("Contours", CV_WINDOW_AUTOSIZE);
@@ -141,6 +151,7 @@ double NaoVision::calculateAngleToBlackLine() {
             }
         }
         else { // Go straight.
+            lineFlag = 0;
             angleToALine = 90.0;
         }
     }

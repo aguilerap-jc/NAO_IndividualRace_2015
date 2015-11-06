@@ -40,16 +40,13 @@ int main(int argc, char *argv[]) {
     string ip = argv[1];        // NAO ip
     cout << "IP: " << ip << endl;
 
-    //AL::ALRobotPostureProxy posture(ip, port);  // Posture Proxy
-    //AL::ALMotionProxy motion(ip, port);         // Motion Proxy
-    Mat src;
-
     bool DEBUG = true;          // Bandera para mostrar mensajes
     bool LOCAL = false;         // Bandera para el tipo de ejecucion (local o remota)
     bool NAO = true;
     char key = 'x';
     double angleToBlackLine;         // Angulo de la línea detectada
 
+    Mat src;
     NaoVision naoVision(ip, port, LOCAL);
     NaoMovement naoMovement(ip, port, LOCAL);
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.

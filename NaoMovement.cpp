@@ -45,15 +45,15 @@ void NaoMovement::stop() {
 double NaoMovement::linearVelocity(double theta){
     const double vMax = 0.85;
     const double k1 = 1.0 / 40;
-    const double k2 = 1.0 / 15;
+    const double k2 = 1.0 / 15;     // 1 / 15
     return vMax * exp(-(theta > 90 ? k2 : k1) * abs(theta - 90));
 }
 
 // w = wmax * ( 1 - e^(-k*abs(theta - 90)))*N if (theta > 90) (N = -1) else (N = 1)
 double NaoMovement::angularVelocity(double theta){
     const double wMax = 0.25;
-    const double k1 = 1.0 / 20;     // k1 right to left correction
-    const double k2 = 1.0 / 20;     // k2 left to right correction
+    const double k1 = 1.0 / 10;     // k1 right to left correction 1/20
+    const double k2 = 1.0 / 10;     // k2 left to right correction 1/20
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
 }
 

@@ -33,6 +33,7 @@ private:
     AL::ALVideoDeviceProxy cameraProxy;
 
     bool local;             // Flag for the execution type (local or remote).
+    int lineFlag;           // Variable that determines where is the Nao. 0 = Middle. 1 = Nao is on the left side. 2 = Nao is on the right side.
     int area;
     int port;
     int length;
