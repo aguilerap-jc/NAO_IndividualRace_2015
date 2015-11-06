@@ -40,11 +40,11 @@ int main(int argc, char *argv[]) {
     string ip = argv[1];        // NAO ip
     cout << "IP: " << ip << endl;
 
-    bool DEBUG = true;          // Bandera para mostrar mensajes
-    bool LOCAL = false;         // Bandera para el tipo de ejecucion (local o remota)
+    bool DEBUG = true;          // Flag for debug messages.
+    bool LOCAL = false;         // Flap for the kind of execution (local or remote).
     bool NAO = true;
     char key = 'x';
-    double angleToBlackLine;         // Angulo de la línea detectada
+    double angleToBlackLine;    // Angle of the detected line.
 
     Mat src;
     NaoVision naoVision(ip, port, LOCAL);

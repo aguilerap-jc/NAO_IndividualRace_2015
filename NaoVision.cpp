@@ -1,7 +1,7 @@
 #include "NaoVision.h"
 
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
-    lineFlag = 0;
+    lineFlag = 0;   // For default, the Nao is on the middle.
     thresh = 110;
     umbral = 60;
     this->ip = ip;
@@ -127,9 +127,9 @@ double NaoVision::calculateAngleToBlackLine() {
         else if (angleToALine >= 80 && angleToALine <= 100 && lineFlag == 2)
             angleToALine = 0;    // Nao is on the right black line, so we have to go to the left.
         else if (angleToALine < 90)
-            lineFlag = 2;
+            lineFlag = 2;       // Nao is on the right side.
         else if (angleToALine > 90)
-            lineFlag = 1;
+            lineFlag = 1;       // Nao is on the left side.
 
         // Show in a window.
         if(!local) {

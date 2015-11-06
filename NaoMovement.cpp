@@ -44,8 +44,8 @@ void NaoMovement::stop() {
 // v = vmax * e^(-k*abs(theta - 90))
 double NaoMovement::linearVelocity(double theta){
     const double vMax = 0.85;
-    const double k1 = 1.0 / 40;
-    const double k2 = 1.0 / 15;     // 1 / 15
+    const double k1 = 1.0 / 40;     // k1 linear velocity for the right side.
+    const double k2 = 1.0 / 15;     // k2 linear velocity for the left side.
     return vMax * exp(-(theta > 90 ? k2 : k1) * abs(theta - 90));
 }
 
