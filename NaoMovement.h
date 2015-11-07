@@ -9,6 +9,8 @@ using namespace AL;
 
 class NaoMovement {
 public:
+    enum NaoPositionOnLane {LEFT, CENTER, RIGHT};
+
     NaoMovement(const string ip, const int port, bool local);
     void initialPosition();
     void moveInIndividualRace(double angleInDegrees);
@@ -21,6 +23,8 @@ private:
     bool local;             // Flag for the execution type (local or remote).
     int port;
     string ip;
+
+    NaoPositionOnLane naoPositionOnLane; // Variable that determines where is the Nao on the lane.
 
     double linearVelocity(double theta);
     double angularVelocity(double theta);

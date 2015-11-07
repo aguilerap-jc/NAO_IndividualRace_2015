@@ -122,15 +122,6 @@ double NaoVision::calculateAngleToBlackLine() {
         // Calculate the angle of the line.
         angleToALine = getAngleDegrees(contoursClean[indMax], drawing);
 
-        if(angleToALine >= 80 && angleToALine <= 100 && lineFlag == 1)
-            angleToALine = 180;  // Nao is on the left black line, so we have to go to the right.
-        else if (angleToALine >= 80 && angleToALine <= 100 && lineFlag == 2)
-            angleToALine = 0;    // Nao is on the right black line, so we have to go to the left.
-        else if (angleToALine < 90)
-            lineFlag = 2;       // Nao is on the right side.
-        else if (angleToALine > 90)
-            lineFlag = 1;       // Nao is on the left side.
-
         // Show in a window.
         if(!local) {
             namedWindow("Contours", CV_WINDOW_AUTOSIZE);
