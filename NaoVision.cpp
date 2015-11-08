@@ -1,7 +1,6 @@
 #include "NaoVision.h"
 
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
-    lineFlag = 0;   // For default, the Nao is on the middle.
     thresh = 110;
     umbral = 60;
     this->ip = ip;
@@ -86,6 +85,7 @@ double NaoVision::calculateAngleToBlackLine() {
     if(contoursClean.size() != 0) {
         // Get moments and mass for new vector.
         vector<Moments> muClean(contoursClean.size());
+
         for(int i = 0; i < contoursClean.size(); i++)
             muClean[i] = moments(contoursClean[i], false);
 
@@ -93,7 +93,7 @@ double NaoVision::calculateAngleToBlackLine() {
         vector<Point2f> mcClean( contoursClean.size());
 
         for(int i = 0; i < contoursClean.size(); i++)
-            mcClean[i] = Point2f( muClean[i].m10/muClean[i].m00 , muClean[i].m01/muClean[i].m00 );
+            mcClean[i] = Point2f(muClean[i].m10/muClean[i].m00, muClean[i].m01/muClean[i].m00);
 
         for(int i = 0; i < contoursClean.size(); i++) {
             punto = mcClean[i];
@@ -113,37 +113,29 @@ double NaoVision::calculateAngleToBlackLine() {
         }
 
         // Draw contours.
-        Mat drawing = Mat::zeros( canny_output.size(), CV_8UC3);
+        Mat drawing = Mat::zeros(canny_output.size(), CV_8UC3);
 
-        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255));
         drawContours( drawing, contoursClean, indMax, color, 2, 8, hierarchy, 0, Point());
-        circle( drawing, mcClean[indMax], 4, color, 5, 8, 0 );
+        circle(drawing, mcClean[indMax], 4, color, 5, 8, 0 );
 
         // Calculate the angle of the line.
         angleToALine = getAngleDegrees(contoursClean[indMax], drawing);
+
+        puntoMax = mcClean[indMax];
+        lengthMax = arcLength(contoursClean[indMax], true);
 
         // Show in a window.
         if(!local) {
             namedWindow("Contours", CV_WINDOW_AUTOSIZE);
             imshow("Contours", drawing);
-        }
 
-        if(contoursClean.size() != 0) {
-            puntoMax = mcClean[indMax];
-            lengthMax = arcLength(contoursClean[indMax], true);
-
-            if(!local) {
-                // Draw grid.
-                line(drawing, Point(260,0), Point(260, drawing.rows), Scalar(255,255,255));
-                line(drawing, Point(umbral,0), Point(umbral, drawing.rows), Scalar(255,255,255));
-                line(drawing, Point((drawing.cols/2),0), Point((drawing.cols/2), drawing.rows), Scalar(255,255,255));
-                line(drawing, Point(0,120), Point(320,120), Scalar(255,255,255));
-                imshow("Contours", drawing);
-            }
-        }
-        else { // Go straight.
-            lineFlag = 0;
-            angleToALine = 90.0;
+            // Draw grid.
+            line(drawing, Point(260,0), Point(260, drawing.rows), Scalar(255,255,255));
+            line(drawing, Point(umbral,0), Point(umbral, drawing.rows), Scalar(255,255,255));
+            line(drawing, Point((drawing.cols/2),0), Point((drawing.cols/2), drawing.rows), Scalar(255,255,255));
+            line(drawing, Point(0,120), Point(320,120), Scalar(255,255,255));
+            imshow("Contours", drawing);
         }
     }
     else { // Go straight.

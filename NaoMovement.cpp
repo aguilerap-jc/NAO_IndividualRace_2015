@@ -74,6 +74,7 @@ double NaoMovement::angularVelocity(double theta){
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
 }
 
+// Enhance the walking parameters to increase the speed.
 AL::ALValue NaoMovement::walkParameters() {
    return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14),
                               AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.5), //Frec 0.5

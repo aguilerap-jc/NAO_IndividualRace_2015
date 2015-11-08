@@ -40,7 +40,6 @@ int main(int argc, char *argv[]) {
     string ip = argv[1];        // NAO ip
     cout << "IP: " << ip << endl;
 
-    bool DEBUG = true;          // Flag for debug messages.
     bool LOCAL = false;         // Flap for the kind of execution (local or remote).
     bool NAO = true;
     char key = 'x';
