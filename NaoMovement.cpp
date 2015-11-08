@@ -18,6 +18,15 @@ void NaoMovement::initialPosition() {
         cout << "Stand" << endl;
 }
 
+void NaoMovement::initialPositionRelay() {
+    posture.goToPosture("Crouch", 0.5);
+    motion.angleInterpolation("HeadYaw", -2.0f, 1.0f, true);
+    //posture.goToPosture("StandInit", 0.5);
+
+    if (!local)
+        cout << "Stand" << endl;
+}
+
 // Given an angle in degrees, move the NAO in straight mode.
 void NaoMovement::moveInIndividualRace(double angleInDegrees) {
     if (angleInDegrees == 90) {

@@ -17,9 +17,12 @@ class NaoVision {
 public:
     NaoVision(const string ip, const int port, bool local);
     Mat getImage();
+    Mat getImageTop();
+    Mat getImageBot();
     double calculateAngleToBlackLine();
     void unsubscribe();
-
+    void calibracionColorCamara();
+    bool filtroColor(Mat imgOriginal);
     void setSourceMat(Mat source);
     Mat getSourceMat();
 
@@ -33,7 +36,6 @@ private:
     AL::ALVideoDeviceProxy cameraProxy;
 
     bool local;             // Flag for the execution type (local or remote).
-    int lineFlag;           // Variable that determines where is the Nao. 0 = Middle. 1 = Nao is on the left side. 2 = Nao is on the right side.
     int area;
     int port;
     int length;
@@ -43,6 +45,14 @@ private:
     string ip;
     string clientName;
     string parameterClientName;
+
+    // Variables that allow us to detect different colors.
+    int iLowH;
+    int iHighH;
+    int iLowS;
+    int iHighS;
+    int iLowV;
+    int iHighV;
 
     double getAngleDegrees(const vector<Point> &pts, Mat &img);
     void drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale);

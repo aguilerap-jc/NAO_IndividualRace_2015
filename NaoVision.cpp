@@ -1,6 +1,31 @@
 #include "NaoVision.h"
 
+/*Parametros de verde JerseyMexicoPerro
+ * LowH  = 070/179
+ * HighH = 103/179
+ * LowS  = 046/255
+ * HighS = 255/255
+ * LowV  = 000/255
+ * HighV = 121/255
+ *
+*/
+
+/*Parametros de verde Cinta
+ * LowH  = 050/179
+ * HighH = 162/179
+ * LowS  = 169/255
+ * HighS = 255/255
+ * LowV  = 141/255
+ * HighV = 255/255
+*/
+
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
+    iLowH = 50;
+    iHighH = 162;
+    iLowS = 106;     // Este parametro es el primero que hay que mover en busca de la deteccion del verde.
+    iHighS = 255;
+    iLowV = 141;
+    iHighV = 255;
     thresh = 110;
     umbral = 60;
     this->ip = ip;
@@ -12,6 +37,58 @@ NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraPro
 
 // Get image from NAO.
 Mat NaoVision::getImage() {
+    // Connect to bottom camera.
+    cameraProxy.setActiveCamera(AL::kBottomCamera);
+
+    // Image of 320*240 px.
+    cameraProxy.setResolution(parameterClientName, 1);
+
+    // Create an cv::Mat header to wrap into an opencv image.
+    Mat imgHeader = Mat(cv::Size(320, 240), CV_8UC3);
+
+    // Retrieves the latest image from the video resource.
+    ALValue img = cameraProxy.getImageRemote(clientName);
+
+    // Access the image buffer (6th field) and assign it to the opencv image container.
+    imgHeader.data = (uchar*)img[6].GetBinary();
+
+    // Tells to ALVideoDevice that it can give back the image buffer to the driver.
+    // Optional after a getImageRemote but MANDATORY after a getImageLocal.
+    cameraProxy.releaseImage(clientName);
+
+    // Display the iplImage on screen.
+    src = imgHeader.clone();
+
+    return src;
+}
+
+Mat NaoVision::getImageTop() {
+    // Connect to bottom camera.
+    cameraProxy.setActiveCamera(AL::kTopCamera);
+
+    // Image of 320*240 px.
+    cameraProxy.setResolution(parameterClientName, 1);
+
+    // Create an cv::Mat header to wrap into an opencv image.
+    Mat imgHeader = Mat(cv::Size(320, 240), CV_8UC3);
+
+    // Retrieves the latest image from the video resource.
+    ALValue img = cameraProxy.getImageRemote(clientName);
+
+    // Access the image buffer (6th field) and assign it to the opencv image container.
+    imgHeader.data = (uchar*)img[6].GetBinary();
+
+    // Tells to ALVideoDevice that it can give back the image buffer to the driver.
+    // Optional after a getImageRemote but MANDATORY after a getImageLocal.
+    cameraProxy.releaseImage(clientName);
+
+    // Display the iplImage on screen.
+    src = imgHeader.clone();
+
+    return src;
+}
+
+Mat NaoVision::getImageBot() {
     // Connect to bottom camera.
     cameraProxy.setActiveCamera(AL::kBottomCamera);
 
@@ -145,9 +222,58 @@ double NaoVision::calculateAngleToBlackLine() {
     return angleToALine;
 }
 
-void NaoVision::unsubscribe() {
-   cameraProxy.unsubscribe(clientName);
+void NaoVision::calibracionColorCamara() {
+    namedWindow("Control", CV_WINDOW_AUTOSIZE);         // Create a window called "Control".
+
+    // Create trackbars in "Control" window.
+    cvCreateTrackbar("LowH", "Control", &iLowH, 179);   // Hue (0 - 179).
+    cvCreateTrackbar("HighH", "Control", &iHighH, 179);
+    cvCreateTrackbar("LowS", "Control", &iLowS, 255);   // Saturation (0 - 255).
+    cvCreateTrackbar("HighS", "Control", &iHighS, 255);
+    cvCreateTrackbar("LowV", "Control", &iLowV, 255);   // Value (0 - 255).
+    cvCreateTrackbar("HighV", "Control", &iHighV, 255);
 }
+
+bool NaoVision::filtroColor(Mat imgOriginal) {
+    double area;
+    Mat src_gray;
+    Mat imgHSV;
+    Mat imgThresholded;
+
+    cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV);       // Convert the captured frame from BGR to HSV.
+    inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); // Threshold the image.
+
+    // Morphological opening (remove small objects from the foreground).
+    erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
+    dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
+
+    // Morphological closing (fill small holes in the foreground).
+    dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
+    erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
+    //drawContours(imgThresholded,contours,1,theObjects.at(i).getColor(),3,8,hierarchy);
+
+    // Get the moments.
+    Moments oMoments = moments(imgThresholded);
+
+    // Receive the centroid area.
+    double dArea = oMoments.m00;
+    area = dArea / 100000;
+
+    // Cloned the modified image to calculate the points.
+    src_gray = imgThresholded.clone();
+
+    imshow("Thresholded Image", imgThresholded);    // Show the thresholded image.
+    imshow("Original", imgOriginal);                // Show the original image.
+
+    // Blur to soften the image points.
+    blur(src_gray, src_gray, Size(3,3));
+
+    if(area>=1 && area<=20)
+        return true;    // Green area detected.
+
+    return false;
+}
+
 
 // Calculate the angle in degrees of a certain line.
 double NaoVision::getAngleDegrees(const vector<Point> &pts, Mat &img) {
@@ -208,6 +334,10 @@ void NaoVision::drawAxis(Mat& img, Point p, Point q, Scalar colour, const float 
     p.x = (int) (q.x + 9 * cos(angle - CV_PI / 4));
     p.y = (int) (q.y + 9 * sin(angle - CV_PI / 4));
     line(img, p, q, colour, 1, CV_AA);
+}
+
+void NaoVision::unsubscribe() {
+   cameraProxy.unsubscribe(clientName);
 }
 
 // Getters and setters

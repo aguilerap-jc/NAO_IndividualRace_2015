@@ -13,6 +13,7 @@ public:
 
     NaoMovement(const string ip, const int port, bool local);
     void initialPosition();
+    void initialPositionRelay();
     void moveInIndividualRace(double angleInDegrees);
     void stop();
 
