@@ -15,14 +15,16 @@ using namespace cv;
 
 class NaoVision {
 public:
+    enum NaoCamera {TOP_CAMERA, BOTTOM_CAMERA};
+
     NaoVision(const string ip, const int port, bool local);
-    Mat getImage();
-    Mat getImageTop();
-    Mat getImageBot();
+    Mat getImageFrom(NaoCamera camera);
     double calculateAngleToBlackLine();
+    bool naoIsNearTheGoal(Mat originalImage);
+    int getAreaBlackColor(Mat originalImage);
+    void filterColor(Mat originalImage);
+    void calibrateColorDetection();
     void unsubscribe();
-    void calibracionColorCamara();
-    bool filtroColor(Mat imgOriginal);
     void setSourceMat(Mat source);
     Mat getSourceMat();
 
@@ -37,6 +39,7 @@ private:
 
     bool local;             // Flag for the execution type (local or remote).
     int area;
+    int areaColorDetection; // Store the area captured by the NAO camera of a preselected chosen color.
     int port;
     int length;
     int thresh;
