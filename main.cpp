@@ -60,8 +60,14 @@ int main(int argc, char *argv[]) {
             naoVision.setSourceMat(src);
         }
 
-        angleToBlackLine = naoVision.calculateAngleToBlackLine();
-        naoMovement.moveInIndividualRace(angleToBlackLine);
+        if (naoVision.naoIsNearTheGoal(src)) {
+            cout << "Start decreasing velocity." << endl;
+            break;
+        } else {
+            cout << "Go!" << endl;
+            angleToBlackLine = naoVision.calculateAngleToBlackLine();
+            naoMovement.moveInIndividualRace(angleToBlackLine);
+        }
 
         key = waitKey(10);
 

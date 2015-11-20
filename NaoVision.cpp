@@ -228,8 +228,8 @@ void NaoVision::filterColor(Mat originalImage) {
     // Cloned the modified image to calculate the points.
     src_gray = imgThresholded.clone();
 
-    imshow("Thresholded Image", imgThresholded);    // Show the thresholded image.
-    imshow("Original", originalImage);                // Show the original image.
+    imshow("Thresholded Image", imgThresholded);      // Show the thresholded image.
+    //imshow("Original", originalImage);                // Show the original image.
 
     // Blur to soften the image points.
     blur(src_gray, src_gray, Size(3,3));
