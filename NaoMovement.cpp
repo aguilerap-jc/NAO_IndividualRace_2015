@@ -12,7 +12,7 @@ NaoMovement::NaoMovement(const string ip, const int port, bool local): posture(i
 // Establish the position in Crouch and then in StandInit.
 void NaoMovement::initialPosition() {
     posture.goToPosture("Crouch", 0.5);
-    posture.goToPosture("StandInit", 1.0);
+    //posture.goToPosture("StandInit", 1.0);
 
     if (!local)
         cout << "Stand" << endl;

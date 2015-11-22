@@ -50,20 +50,26 @@ int main(int argc, char *argv[]) {
     NaoMovement naoMovement(ip, port, LOCAL);
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.
 
+    //naoMovement.initialPositionRelay();
     naoMovement.initialPosition();
 
-    while (key != 27) {
+    bool start = false;
+    while (key != 27){
+    //while (!start || key != 27){
         if (NAO) {
-            src = naoVision.getImage();
+            src = naoVision.getImageTop();
+            //src = naoVision.getImage();
         } else {
             cap >> src;
             naoVision.setSourceMat(src);
         }
 
-        angleToBlackLine = naoVision.calculateAngleToBlackLine();
-        naoMovement.moveInIndividualRace(angleToBlackLine);
+        //angleToBlackLine = naoVision.calculateAngleToBlackLine();
+        //naoMovement.moveInIndividualRace(angleToBlackLine);
+        naoVision.calibracionColorCamara();
+        start = naoVision.filtroColor(src);
         key = waitKey(10);
-
+        //cout <<start << endl;
         for (int i = 0; i < 250000; i++);   // Delay.
     }
 

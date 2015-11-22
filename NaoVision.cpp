@@ -19,12 +19,29 @@
  * HighV = 255/255
 */
 
+/*Parametros de Cinta Amarilla
+ * LowH  = 020/179
+ * HighH = 071/179
+ * LowS  = 169/255
+ * HighS = 255/255
+ * LowV  = 141/255
+ * HighV = 255/255
+*/
+
+/*Parametros de Cinta Rojo
+ * LowH  = 000/179
+ * HighH = 077/179
+ * LowS  = 43/255
+ * HighS = 229/255
+ * LowV  = 0/255
+ * HighV = 255/255
+*/
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
-    iLowH = 50;
-    iHighH = 162;
-    iLowS = 106;     // Este parametro es el primero que hay que mover en busca de la deteccion del verde.
-    iHighS = 255;
-    iLowV = 141;
+    iLowH = 0;
+    iHighH = 77;
+    iLowS = 43;     // Este parametro es el primero que hay que mover en busca de la deteccion del verde.
+    iHighS = 229;
+    iLowV = 0;
     iHighV = 255;
     thresh = 110;
     umbral = 60;
@@ -267,7 +284,7 @@ bool NaoVision::filtroColor(Mat imgOriginal) {
 
     // Blur to soften the image points.
     blur(src_gray, src_gray, Size(3,3));
-
+    //cout <<area << endl;
     if(area>=1 && area<=20)
         return true;    // Green area detected.
 
