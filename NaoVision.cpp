@@ -19,23 +19,6 @@
  * HighV = 255/255
 */
 
-/*Parametros de Cinta Amarilla
- * LowH  = 020/179
- * HighH = 071/179
- * LowS  = 169/255
- * HighS = 255/255
- * LowV  = 141/255
- * HighV = 255/255
-*/
-
-/*Parametros de Cinta Rojo
- * LowH  = 000/179
- * HighH = 077/179
- * LowS  = 43/255
- * HighS = 229/255
- * LowV  = 0/255
- * HighV = 255/255
-*/
 NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
     iLowH = 0;
     iHighH = 77;
@@ -45,6 +28,7 @@ NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraPro
     iHighV = 255;
     thresh = 110;
     umbral = 60;
+    areaColorDetection = 0;
     this->ip = ip;
     this->port = port;
     this->local = local;
@@ -53,61 +37,11 @@ NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraPro
 }
 
 // Get image from NAO.
-Mat NaoVision::getImage() {
-    // Connect to bottom camera.
-    cameraProxy.setActiveCamera(AL::kBottomCamera);
-
-    // Image of 320*240 px.
-    cameraProxy.setResolution(parameterClientName, 1);
-
-    // Create an cv::Mat header to wrap into an opencv image.
-    Mat imgHeader = Mat(cv::Size(320, 240), CV_8UC3);
-
-    // Retrieves the latest image from the video resource.
-    ALValue img = cameraProxy.getImageRemote(clientName);
-
-    // Access the image buffer (6th field) and assign it to the opencv image container.
-    imgHeader.data = (uchar*)img[6].GetBinary();
-
-    // Tells to ALVideoDevice that it can give back the image buffer to the driver.
-    // Optional after a getImageRemote but MANDATORY after a getImageLocal.
-    cameraProxy.releaseImage(clientName);
-
-    // Display the iplImage on screen.
-    src = imgHeader.clone();
-
-    return src;
-}
-
-Mat NaoVision::getImageTop() {
-    // Connect to bottom camera.
-    cameraProxy.setActiveCamera(AL::kTopCamera);
-
-    // Image of 320*240 px.
-    cameraProxy.setResolution(parameterClientName, 1);
-
-    // Create an cv::Mat header to wrap into an opencv image.
-    Mat imgHeader = Mat(cv::Size(320, 240), CV_8UC3);
-
-    // Retrieves the latest image from the video resource.
-    ALValue img = cameraProxy.getImageRemote(clientName);
-
-    // Access the image buffer (6th field) and assign it to the opencv image container.
-    imgHeader.data = (uchar*)img[6].GetBinary();
-
-    // Tells to ALVideoDevice that it can give back the image buffer to the driver.
-    // Optional after a getImageRemote but MANDATORY after a getImageLocal.
-    cameraProxy.releaseImage(clientName);
-
-    // Display the iplImage on screen.
-    src = imgHeader.clone();
-
-    return src;
-}
-
-Mat NaoVision::getImageBot() {
-    // Connect to bottom camera.
-    cameraProxy.setActiveCamera(AL::kBottomCamera);
+Mat NaoVision::getImageFrom(NaoCamera camera) {
+    if (camera == TOP_CAMERA)
+        cameraProxy.setActiveCamera(AL::kTopCamera);        // Connect to top camera.
+    else
+        cameraProxy.setActiveCamera(AL::kBottomCamera);     // Connect to bottom camera.
 
     // Image of 320*240 px.
     cameraProxy.setResolution(parameterClientName, 1);
@@ -239,25 +173,84 @@ double NaoVision::calculateAngleToBlackLine() {
     return angleToALine;
 }
 
-void NaoVision::calibracionColorCamara() {
-    namedWindow("Control", CV_WINDOW_AUTOSIZE);         // Create a window called "Control".
+// Detect if the NAO is near the goal.
+bool NaoVision::naoIsNearTheGoal(Mat originalImage) {
+    getAreaBlackColor(originalImage);
 
-    // Create trackbars in "Control" window.
-    cvCreateTrackbar("LowH", "Control", &iLowH, 179);   // Hue (0 - 179).
-    cvCreateTrackbar("HighH", "Control", &iHighH, 179);
-    cvCreateTrackbar("LowS", "Control", &iLowS, 255);   // Saturation (0 - 255).
-    cvCreateTrackbar("HighS", "Control", &iHighS, 255);
-    cvCreateTrackbar("LowV", "Control", &iLowV, 255);   // Value (0 - 255).
-    cvCreateTrackbar("HighV", "Control", &iHighV, 255);
+    if (areaColorDetection >= 50)
+        return true;
+    else
+        return false;
 }
 
-bool NaoVision::filtroColor(Mat imgOriginal) {
-    double area;
+// Returns the area of black color captured of a certain image.
+int NaoVision::getAreaBlackColor(Mat originalImage) {
+    iLowH = 0;
+    iHighH = 180;
+    iLowS = 0;
+    iHighS = 255;
+    iLowV = 100;
+    iHighV = 255;
+
+    ColorFilter(originalImage);
+
+    areaColorDetection = 195 - areaColorDetection;
+    cout << areaColorDetection << endl;
+
+    return areaColorDetection;
+}
+
+// Returns the area of red color captured of a certain image.
+int NaoVision::getAreaRedColor(Mat originalImage) {
+/*Parametros de Cinta Rojo
+* LowH  = 000/179
+* HighH = 077/179
+* LowS  = 43/255
+* HighS = 229/255
+* LowV  = 0/255
+* HighV = 255/255
+*/
+    iLowH = 0;
+    iHighH = 77;
+    iLowS = 43;
+    iHighS = 229;
+    iLowV = 0;
+    iHighV = 255;
+
+    ColorFilter(originalImage);
+
+    return areaColorDetection;
+}
+
+// Returns the area of yellow color captured of a certain image.
+int NaoVision::getAreaYellowColor(Mat originalImage) {
+/*Parametros de Cinta Amarilla
+* LowH  = 020/179
+* HighH = 071/179
+* LowS  = 169/255
+* HighS = 255/255
+* LowV  = 141/255
+* HighV = 255/255
+*/
+    iLowH = 20;
+    iHighH = 71;
+    iLowS = 169;
+    iHighS = 255;
+    iLowV = 141;
+    iHighV = 255;
+
+    ColorFilter(originalImage);
+
+    return areaColorDetection;
+}
+
+// Adds a filter with the parameters preconfigured and calculates the area obtained for a certain preselected color.
+void NaoVision::ColorFilter(Mat originalImage) {
     Mat src_gray;
     Mat imgHSV;
     Mat imgThresholded;
 
-    cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV);       // Convert the captured frame from BGR to HSV.
+    cvtColor(originalImage, imgHSV, COLOR_BGR2HSV);       // Convert the captured frame from BGR to HSV.
     inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); // Threshold the image.
 
     // Morphological opening (remove small objects from the foreground).
@@ -274,23 +267,33 @@ bool NaoVision::filtroColor(Mat imgOriginal) {
 
     // Receive the centroid area.
     double dArea = oMoments.m00;
-    area = dArea / 100000;
+    areaColorDetection = dArea / 100000;
 
     // Cloned the modified image to calculate the points.
     src_gray = imgThresholded.clone();
 
-    imshow("Thresholded Image", imgThresholded);    // Show the thresholded image.
-    imshow("Original", imgOriginal);                // Show the original image.
+    imshow("Thresholded Image", imgThresholded);      // Show the thresholded image.
+    imshow("Original", originalImage);                // Show the original image.
 
     // Blur to soften the image points.
     blur(src_gray, src_gray, Size(3,3));
     //cout <<area << endl;
-    if(area>=1 && area<=20)
-        return true;    // Green area detected.
-
-    return false;
+    //if(area>=1 && area<=20)
+        //return true;    // Green area detected.
 }
 
+// Method that allows us to find the values for the detection of a certain color.
+void NaoVision::calibrateColorDetection() {
+    namedWindow("Control", CV_WINDOW_AUTOSIZE);         // Create a window called "Control".
+
+    // Create trackbars in "Control" window.
+    cvCreateTrackbar("LowH" , "Control", &iLowH, 179);   // Hue (0 - 179).
+    cvCreateTrackbar("HighH", "Control", &iHighH, 179);
+    cvCreateTrackbar("LowS" , "Control", &iLowS, 255);   // Saturation (0 - 255).
+    cvCreateTrackbar("HighS", "Control", &iHighS, 255);
+    cvCreateTrackbar("LowV" , "Control", &iLowV, 255);   // Value (0 - 255).
+    cvCreateTrackbar("HighV", "Control", &iHighV, 255);
+}
 
 // Calculate the angle in degrees of a certain line.
 double NaoVision::getAngleDegrees(const vector<Point> &pts, Mat &img) {

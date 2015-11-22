@@ -44,21 +44,23 @@ int main(int argc, char *argv[]) {
     bool NAO = true;
     char key = 'x';
     double angleToBlackLine;    // Angle of the detected line.
+    int blackArea;
+    int yellowArea;
+    int redArea;
 
-    Mat src;
+    Mat src,src2;
     NaoVision naoVision(ip, port, LOCAL);
     NaoMovement naoMovement(ip, port, LOCAL);
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.
 
     //naoMovement.initialPositionRelay();
-    naoMovement.initialPosition();
+    naoMovement.initialPositionIndividualRace();
 
     bool start = false;
     while (key != 27){
     //while (!start || key != 27){
         if (NAO) {
-            src = naoVision.getImageTop();
-            //src = naoVision.getImage();
+            src = naoVision.getImageFrom(NaoVision::BOTTOM_CAMERA);
         } else {
             cap >> src;
             naoVision.setSourceMat(src);
@@ -66,12 +68,37 @@ int main(int argc, char *argv[]) {
 
         //angleToBlackLine = naoVision.calculateAngleToBlackLine();
         //naoMovement.moveInIndividualRace(angleToBlackLine);
-        naoVision.calibracionColorCamara();
-        start = naoVision.filtroColor(src);
+        //naoVision.calibrateColorDetection();
+        if(naoVision.naoIsNearTheGoal(src)){
+            cout << "NAO is NEAR" << endl;
+            //flagGoalIsNear = 1;
+        }
+
+
+        redArea = naoVision.getAreaRedColor(src);
+        if(redArea >= 0){
+            cout<< "Red Area: " << redArea << endl;
+            //flagGoalIsNear = 2;
+        }
+
+        /*
+        if (naoVision.naoIsNearTheGoal(src)) {
+            cout << "Start decreasing velocity." << endl;
+
+            //break;
+        } else {
+            cout << "Go!" << endl;
+            angleToBlackLine = naoVision.calculateAngleToBlackLine();
+            naoMovement.moveInIndividualRace(angleToBlackLine);
+        }
+        */
         key = waitKey(10);
         //cout <<start << endl;
         for (int i = 0; i < 250000; i++);   // Delay.
     }
+    //if(flagGoalIsNear == 1) caminar un poco mas hacia adelante y terminar ejecucion
+    //elseif(flagGoalIsNear == 2) Iniciar rutina de acomodado y de movimiento a la derecha si es necesario
+    //else (why the fuck it goes out of the loop!)
 
     naoVision.unsubscribe();
     naoMovement.stop();

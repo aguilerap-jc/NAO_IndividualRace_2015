@@ -2374,6 +2374,10 @@ alproxies/alvideodeviceproxy.h
 alvision/alvisiondefinitions.h
 -
 
+/home/aguilerapjc/JC/NAO/naoWS/wlkv2/NaoVision.cpp
+NaoVision.h
+/home/aguilerapjc/JC/NAO/naoWS/wlkv2/NaoVision.h
+
 /home/aguilerapjc/JC/NAO/naoWS/wlkv2/NaoVision.h
 opencv2/opencv.hpp
 -

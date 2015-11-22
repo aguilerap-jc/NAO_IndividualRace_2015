@@ -10,18 +10,17 @@ NaoMovement::NaoMovement(const string ip, const int port, bool local): posture(i
 }
 
 // Establish the position in Crouch and then in StandInit.
-void NaoMovement::initialPosition() {
+void NaoMovement::initialPositionIndividualRace() {
     posture.goToPosture("Crouch", 0.5);
-    //posture.goToPosture("StandInit", 1.0);
+    posture.goToPosture("StandInit", 1.0);
 
     if (!local)
         cout << "Stand" << endl;
 }
 
-void NaoMovement::initialPositionRelay() {
+void NaoMovement::initialPositionRelayRace() {
     posture.goToPosture("Crouch", 0.5);
     motion.angleInterpolation("HeadYaw", -2.0f, 1.0f, true);
-    //posture.goToPosture("StandInit", 0.5);
 
     if (!local)
         cout << "Stand" << endl;
@@ -37,7 +36,7 @@ void NaoMovement::moveInIndividualRace(double angleInDegrees) {
         naoPositionOnLane = LEFT;        // Nao is on the left side.
     }
 
-    motion.move(linearVelocity(angleInDegrees), 0, angularVelocity(angleInDegrees),walkParameters());
+    //motion.move(linearVelocity(angleInDegrees), 0, angularVelocity(angleInDegrees),walkParameters());
 
     if (!local){
         cout << "VelLin: " << linearVelocity(angleInDegrees) << endl;
