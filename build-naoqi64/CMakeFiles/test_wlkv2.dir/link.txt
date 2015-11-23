@@ -1,1 +1,0 @@
-/usr/bin/c++   -g    CMakeFiles/test_wlkv2.dir/CaminadoNAO.cpp.o  -o sdk/bin/test_wlkv2 -rdynamic -Wl,-rpath,:::::::::::::: 

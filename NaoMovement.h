@@ -15,6 +15,7 @@ public:
     void initialPositionIndividualRace();
     void initialPositionRelayRace();
     void moveInIndividualRace(double angleInDegrees);
+    void naoOnGoal();
     void stop();
 
 private:

@@ -24,7 +24,7 @@ public:
     int getAreaBlackColor(Mat originalImage);
     int getAreaRedColor(Mat originalImage);
     int getAreaYellowColor(Mat originalImage);
-    void ColorFilter(Mat originalImage);
+    void colorFilter(Mat originalImage);
     void calibrateColorDetection();
     void unsubscribe();
     void setSourceMat(Mat source);

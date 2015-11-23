@@ -36,7 +36,7 @@ void NaoMovement::moveInIndividualRace(double angleInDegrees) {
         naoPositionOnLane = LEFT;        // Nao is on the left side.
     }
 
-    //motion.move(linearVelocity(angleInDegrees), 0, angularVelocity(angleInDegrees),walkParameters());
+    motion.move(linearVelocity(angleInDegrees), 0, angularVelocity(angleInDegrees),walkParameters());
 
     if (!local){
         cout << "VelLin: " << linearVelocity(angleInDegrees) << endl;
@@ -44,6 +44,12 @@ void NaoMovement::moveInIndividualRace(double angleInDegrees) {
         cout << "Theta: " << angleInDegrees << endl;
         cout << "--------------------------------" << endl;
     }
+}
+
+// Takes the NAO to a position just before the goal.
+void NaoMovement::naoOnGoal() {
+    //cout << "Nao on goal!" << endl;
+    motion.moveTo(0.4, 0, 0, walkParameters());
 }
 
 // Establish the position in Crouch and set Stiffnesses to body.
@@ -77,7 +83,7 @@ double NaoMovement::angularVelocity(double theta){
     const double k2 = 1.0 / 10;     // k2 left to right correction
 
     if ((naoPositionOnLane == RIGHT && theta >= 70 && theta <= 90) || (naoPositionOnLane == LEFT && theta >= 90 && theta <= 110))
-        wMax = 0.35;
+        wMax = 0.45;
 
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
 }

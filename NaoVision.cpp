@@ -175,9 +175,9 @@ double NaoVision::calculateAngleToBlackLine() {
 
 // Detect if the NAO is near the goal.
 bool NaoVision::naoIsNearTheGoal(Mat originalImage) {
-    getAreaBlackColor(originalImage);
+    getAreaRedColor(originalImage);
 
-    if (areaColorDetection >= 50)
+    if (areaColorDetection > 40)
         return true;
     else
         return false;
@@ -192,11 +192,8 @@ int NaoVision::getAreaBlackColor(Mat originalImage) {
     iLowV = 100;
     iHighV = 255;
 
-    ColorFilter(originalImage);
-
+    colorFilter(originalImage);
     areaColorDetection = 195 - areaColorDetection;
-    cout << areaColorDetection << endl;
-
     return areaColorDetection;
 }
 
@@ -210,15 +207,15 @@ int NaoVision::getAreaRedColor(Mat originalImage) {
 * LowV  = 0/255
 * HighV = 255/255
 */
-    iLowH = 0;
-    iHighH = 77;
-    iLowS = 43;
-    iHighS = 229;
-    iLowV = 0;
+    iLowH = 160;
+    iHighH = 179;
+    iLowS = 100;
+    iHighS = 255;
+    iLowV = 100;
     iHighV = 255;
 
-    ColorFilter(originalImage);
-
+    colorFilter(originalImage);
+    //cout << "Red area: " << areaColorDetection << endl;
     return areaColorDetection;
 }
 
@@ -239,13 +236,12 @@ int NaoVision::getAreaYellowColor(Mat originalImage) {
     iLowV = 141;
     iHighV = 255;
 
-    ColorFilter(originalImage);
-
+    colorFilter(originalImage);
     return areaColorDetection;
 }
 
 // Adds a filter with the parameters preconfigured and calculates the area obtained for a certain preselected color.
-void NaoVision::ColorFilter(Mat originalImage) {
+void NaoVision::colorFilter(Mat originalImage) {
     Mat src_gray;
     Mat imgHSV;
     Mat imgThresholded;
@@ -260,7 +256,6 @@ void NaoVision::ColorFilter(Mat originalImage) {
     // Morphological closing (fill small holes in the foreground).
     dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
     erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-    //drawContours(imgThresholded,contours,1,theObjects.at(i).getColor(),3,8,hierarchy);
 
     // Get the moments.
     Moments oMoments = moments(imgThresholded);
@@ -277,9 +272,6 @@ void NaoVision::ColorFilter(Mat originalImage) {
 
     // Blur to soften the image points.
     blur(src_gray, src_gray, Size(3,3));
-    //cout <<area << endl;
-    //if(area>=1 && area<=20)
-        //return true;    // Green area detected.
 }
 
 // Method that allows us to find the values for the detection of a certain color.
