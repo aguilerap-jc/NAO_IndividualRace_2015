@@ -48,8 +48,10 @@ void NaoMovement::moveInIndividualRace(double angleInDegrees) {
 
 // Takes the NAO to a position just before the goal.
 void NaoMovement::naoOnGoal() {
-    //cout << "Nao on goal!" << endl;
-    motion.moveTo(0.4, 0, 0, walkParameters());
+    if (!local)
+        cout << "Nao on goal!" << endl;
+
+    motion.moveTo(0.6, 0, 0, walkParameters());
 }
 
 // Establish the position in Crouch and set Stiffnesses to body.

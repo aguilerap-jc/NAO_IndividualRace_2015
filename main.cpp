@@ -60,8 +60,6 @@ int main(int argc, char *argv[]) {
             cap >> src;
             naoVision.setSourceMat(src);
         }
-        //naoMovement.naoOnGoal();
-        //finish = true;
 
         if (naoVision.naoIsNearTheGoal(src)) {
             naoMovement.naoOnGoal();

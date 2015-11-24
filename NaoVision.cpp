@@ -19,7 +19,7 @@
  * HighV = 255/255
 */
 
-NaoVision::NaoVision(const string ip, const int port, bool localFlag): cameraProxy(ip, port), rng(12345) {
+NaoVision::NaoVision(const string ip, const int port, bool local): cameraProxy(ip, port), rng(12345) {
     iLowH = 0;
     iHighH = 77;
     iLowS = 43;     // Este parametro es el primero que hay que mover en busca de la deteccion del verde.
@@ -177,7 +177,7 @@ double NaoVision::calculateAngleToBlackLine() {
 bool NaoVision::naoIsNearTheGoal(Mat originalImage) {
     getAreaRedColor(originalImage);
 
-    if (areaColorDetection > 40)
+    if (areaColorDetection > 30)
         return true;
     else
         return false;
@@ -215,7 +215,6 @@ int NaoVision::getAreaRedColor(Mat originalImage) {
     iHighV = 255;
 
     colorFilter(originalImage);
-    //cout << "Red area: " << areaColorDetection << endl;
     return areaColorDetection;
 }
 
@@ -267,8 +266,10 @@ void NaoVision::colorFilter(Mat originalImage) {
     // Cloned the modified image to calculate the points.
     src_gray = imgThresholded.clone();
 
-    imshow("Thresholded Image", imgThresholded);      // Show the thresholded image.
-    imshow("Original", originalImage);                // Show the original image.
+    if (!local) {
+        imshow("Thresholded Image", imgThresholded);      // Show the thresholded image.
+        imshow("Original", originalImage);                // Show the original image.
+    }
 
     // Blur to soften the image points.
     blur(src_gray, src_gray, Size(3,3));
@@ -276,15 +277,17 @@ void NaoVision::colorFilter(Mat originalImage) {
 
 // Method that allows us to find the values for the detection of a certain color.
 void NaoVision::calibrateColorDetection() {
-    namedWindow("Control", CV_WINDOW_AUTOSIZE);         // Create a window called "Control".
+    if (!local) {
+        namedWindow("Control", CV_WINDOW_AUTOSIZE);         // Create a window called "Control".
 
-    // Create trackbars in "Control" window.
-    cvCreateTrackbar("LowH" , "Control", &iLowH, 179);   // Hue (0 - 179).
-    cvCreateTrackbar("HighH", "Control", &iHighH, 179);
-    cvCreateTrackbar("LowS" , "Control", &iLowS, 255);   // Saturation (0 - 255).
-    cvCreateTrackbar("HighS", "Control", &iHighS, 255);
-    cvCreateTrackbar("LowV" , "Control", &iLowV, 255);   // Value (0 - 255).
-    cvCreateTrackbar("HighV", "Control", &iHighV, 255);
+        // Create trackbars in "Control" window.
+        cvCreateTrackbar("LowH" , "Control", &iLowH, 179);   // Hue (0 - 179).
+        cvCreateTrackbar("HighH", "Control", &iHighH, 179);
+        cvCreateTrackbar("LowS" , "Control", &iLowS, 255);   // Saturation (0 - 255).
+        cvCreateTrackbar("HighS", "Control", &iHighS, 255);
+        cvCreateTrackbar("LowV" , "Control", &iLowV, 255);   // Value (0 - 255).
+        cvCreateTrackbar("HighV", "Control", &iHighV, 255);
+    }
 }
 
 // Calculate the angle in degrees of a certain line.
