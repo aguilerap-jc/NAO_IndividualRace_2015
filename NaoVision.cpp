@@ -350,8 +350,8 @@ double NaoVision::getAngleDegrees(const vector<Point> &pts, Mat &img) {
 
 // The principal components are drawn in lines.
 void NaoVision::drawAxis(Mat& img, Point p, Point q, Scalar colour, const float scale = 0.2) {
-     double angle = atan2( (double) p.y - q.y, (double) p.x - q.x );     // Angle in radians.
-     double hypotenuse = sqrt( (double) (p.y - q.y) * (p.y - q.y) + (p.x - q.x) * (p.x - q.x));
+    double angle = atan2( (double) p.y - q.y, (double) p.x - q.x );     // Angle in radians.
+    double hypotenuse = sqrt( (double) (p.y - q.y) * (p.y - q.y) + (p.x - q.x) * (p.x - q.x));
 
     // Here we lengthen the arrow by a factor of scale.
     q.x = (int) (p.x - scale * hypotenuse * cos(angle));

@@ -72,40 +72,40 @@ void NaoMovement::stop() {
 // Helper methods.
 
 // v = vmax * e^(-k*abs(theta - 90))
-double NaoMovement::linearVelocity(double theta){
-    double vMax = 0.85;
+double NaoMovement::linearVelocity(double theta) {
+    double vMax = 0.65; // 0.85
     const double k1 = 1.0 / 40;     // k1 linear velocity for the right side.
     const double k2 = 1.0 / 20;     // k2 linear velocity for the left side. // 1/20
 
     if ((naoPositionOnLane == RIGHT && theta >= 70 && theta <= 90) || (naoPositionOnLane == LEFT && theta >= 90 && theta <= 110))
-        vMax = 0.65;
+        vMax = 0.35;    // 0.65
 
     return vMax * exp(-(theta > 90 ? k2 : k1) * abs(theta - 90));
 }
 
 // w = wmax * ( 1 - e^(-k*abs(theta - 90)))*N if (theta > 90) (N = -1) else (N = 1)
 double NaoMovement::angularVelocity(double theta){
-    double wMax = 0.25;
+    double wMax = 0.20; // 0.25 
     const double k1 = 1.0 / 10;     // k1 right to left correction
     const double k2 = 1.0 / 10;     // k2 left to right correction
 
     if ((naoPositionOnLane == RIGHT && theta >= 70 && theta <= 90) || (naoPositionOnLane == LEFT && theta >= 90 && theta <= 110))
-        wMax = 0.45;
+        wMax = 0.30;    // 0.45
 
     return pow(-1, theta > 90) * (wMax * (1 - exp(-(theta > 90 ? k2 : k1) * abs(theta - 90))));
 }
 
 // Enhance the walking parameters to increase the speed.
 AL::ALValue NaoMovement::walkParameters() {
-   return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14),
-                              AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.5), //Frec 0.5
-                              AL::ALValue::array("StepHeight",0.04),AL::ALValue::array("TorsoWx",0.0),
-                              AL::ALValue::array("TorsoWy",0));
+   return  AL::ALValue::array(AL::ALValue::array("MaxStepX", 0.08),AL::ALValue::array("MaxStepY", 0.14),
+                              AL::ALValue::array("MaxStepTheta", 0.4),AL::ALValue::array("MaxStepFrequency", 0.4), //Frec 0.5
+                              AL::ALValue::array("StepHeight", 0.04),AL::ALValue::array("TorsoWx", 0.0),
+                              AL::ALValue::array("TorsoWy", 0));
 }
 
 AL::ALValue NaoMovement::walkParametersOnGoal() {
-   return  AL::ALValue::array(AL::ALValue::array("MaxStepX",0.08),AL::ALValue::array("MaxStepY",0.14),
-                              AL::ALValue::array("MaxStepTheta",0.4),AL::ALValue::array("MaxStepFrequency",0.3), //Frec 0.5
-                              AL::ALValue::array("StepHeight",0.04),AL::ALValue::array("TorsoWx",0.0),
-                              AL::ALValue::array("TorsoWy",0));
+   return  AL::ALValue::array(AL::ALValue::array("MaxStepX", 0.08),AL::ALValue::array("MaxStepY", 0.14),
+                              AL::ALValue::array("MaxStepTheta", 0.4),AL::ALValue::array("MaxStepFrequency", 0.3), //Frec 0.3
+                              AL::ALValue::array("StepHeight", 0.04),AL::ALValue::array("TorsoWx", 0.0),
+                              AL::ALValue::array("TorsoWy", 0));
 }

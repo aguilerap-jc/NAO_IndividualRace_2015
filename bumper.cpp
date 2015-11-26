@@ -100,10 +100,7 @@ void Bumper::onLeftBumperPressed() {
   }
 }
 
-void Bumper::walkWithBumper(){
-    struct timespec tim, tim2;
-    tim.tv_sec = 0;
-    tim.tv_nsec = 0;
+void Bumper::walkWithBumper() {
     start = false;
     bool LOCAL = true;         // Flap for the kind of execution (local or remote).
     bool NAO = true;
@@ -111,23 +108,20 @@ void Bumper::walkWithBumper(){
     char key = 'x';
     double angleToBlackLine;    // Angle of the detected line.
 
-    Mat src;
+    Mat bottomImage;
     VideoCapture cap(1);        // Class for video capturing from video files or cameras.
 
     naoMovement.initialPositionIndividualRace();
 
     while (!finish) {
         if (NAO) {
-            //fTtsProxy.say("Bot");
-            src = naoVision.getImageFrom(NaoVision::BOTTOM_CAMERA);
+            bottomImage = naoVision.getImageFrom(NaoVision::BOTTOM_CAMERA);
         } else {
-            //fTtsProxy.say("Cap");
-            cap >> src;
-            naoVision.setSourceMat(src);
+            cap >> bottomImage;
+            naoVision.setSourceMat(bottomImage);
         }
 
-        if (naoVision.naoIsNearTheGoal(src)) {
-            //fTtsProxy.say("Near");
+        if (naoVision.naoIsNearTheGoal(bottomImage)) {
             naoMovement.naoOnGoal();
             finish = true;
         } else {
@@ -144,14 +138,9 @@ void Bumper::walkWithBumper(){
     naoMovement.stop();
     start = true;
 }
-/*
-void Bumper::delay(int secs) {
-  for(int i = ( time(NULL) + secs); time(NULL) != i; time(NULL));
-}
-*/
-void Bumper::emergencyStop(){
-  fTtsProxy.say("On Stop");
-    naoVision.unsubscribe();
-    naoMovement.stop();
-    start = true;
+
+void Bumper::emergencyStop() {
+  naoVision.unsubscribe();
+  naoMovement.stop();
+  start = true;
 }

@@ -65,8 +65,6 @@ class Bumper : public AL::ALModule
     float fState;
     float fState2;
     bool start;
-
-    //void delay(int secs);
 };
 
 #endif  // BUMPER_BUMPER_H
