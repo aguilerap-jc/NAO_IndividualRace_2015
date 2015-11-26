@@ -14,7 +14,6 @@
 
 #include "bumper.h"
 
-
 #ifdef BUMPER_IS_REMOTE
 # define ALCALL
 #else
