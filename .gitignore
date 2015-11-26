@@ -1,7 +1,0 @@
-qiproject.xml
-ignorar.txt
-CMakeLists.txt
-CMakeLists.txt.user
-
-build-naoki-sdk1.14/**/*
-build-sys-linux-x86_64/**/*
